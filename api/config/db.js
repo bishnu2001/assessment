@@ -7,7 +7,7 @@ class Database {
 
   connect() {
     mongoose
-      .connect("mongodb://localhost:27017/userDB", {
+      .connect("mongodb+srv://jasbis2001:j0bqX5YFvan6APUC@cluster0.xhc7uxa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
