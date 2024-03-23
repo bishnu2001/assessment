@@ -1,19 +1,10 @@
 const mongoose = require("mongoose");
-
-class Database {
-  constructor() {
-    this.connect();
+const connectdb = async () => {
+  try {
+    const db = await mongoose.connect(process.env.MONGO_url);
+    console.log(`db connected ${db.connection.host}`);
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
   }
-
-  connect() {
-    mongoose
-      .connect("mongodb+srv://jasbis2001:j0bqX5YFvan6APUC@cluster0.xhc7uxa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      })
-      .then(() => console.log("MongoDB connected"))
-      .catch((err) => console.error("MongoDB connection error:", err));
-  }
-}
-
-module.exports = Database;
+};
+module.exports = { connectdb };

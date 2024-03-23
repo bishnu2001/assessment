@@ -7,8 +7,5 @@ const studentSchema = new mongoose.Schema({
   resume: { type: String, required: true },
 });
 
-/* module.exports = mongoose.model('Student', studentSchema);
-module.exports = { Student }; */
-
-const Student = mongoose.model("Student", studentSchema);
-module.exports = Student;
+module.exports = mongoose.model("Student", studentSchema);
+module.exports = { Student };
